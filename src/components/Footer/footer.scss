@@ -1,0 +1,118 @@
+
+
+.footer {
+    background: linear-gradient(45deg, #1d1d1d, #292929);
+    color: #fff;
+    padding: 50px 20px 20px;
+  
+    font-family: $font-mon;
+    &__logo-img{
+      max-width: 300px;
+      width: 100%;
+  
+      margin-bottom: 20px;
+    }
+  
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  
+    &__about,
+    &__nav,
+    &__contacts {
+      flex: 1;
+      min-width: 240px;
+    }
+  
+    .footer__title {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #f1f1f1;
+    }
+  
+    .footer__text,
+    .footer__address {
+      font-size: 0.9rem;
+      color: #bbb;
+      line-height: 1.5;
+    }
+  
+    /* Ссылки навигации */
+    .footer__menu {
+      list-style: none;
+      padding: 0;
+  
+      .footer__link {
+        text-decoration: none;
+        color: #bbb;
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+        overflow: hidden;
+        transition: .3s ease;
+  
+        &:hover{
+          color: #fff;
+        }
+      }
+    }
+  
+    /* Контакты */
+    &__contacts {
+      .footer__contact-list {
+        list-style: none;
+        padding: 0;
+  
+        .footer__contact-item {
+          margin-bottom: 10px;
+  
+          .footer__contact-link {
+            text-decoration: none;
+            color: #bbb;
+            transition: color 0.3s ease, transform 0.3s ease;
+  
+            &:hover {
+              color: #fff;
+              transform: translateX(5px);
+            }
+          }
+        }
+      }
+    }
+  
+    /* Социальные сети */
+    &__social {
+      .footer__icons {
+        display: flex;
+        gap: 15px;
+  
+        .footer__icon {
+          font-size: 1.5rem;
+          color: #bbb;
+          transition: color 0.3s ease, transform 0.3s ease;
+  
+          &:hover {
+            color: #fff;
+            transform: scale(1.2);
+          }
+        }
+      }
+    }
+  
+    /* Нижний блок */
+    &__bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #bbb;
+  
+      p {
+        margin: 0;
+      }
+    }
+  }

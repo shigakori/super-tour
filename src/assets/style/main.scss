@@ -1,0 +1,110 @@
+$font-inter: 'Inter';
+$font-mon: 'Montserrat';
+$font-mon-alt: 'MontserratAlternates';
+$font-rel: 'Raleway';
+
+$body: #ebebeb;
+$color: #141414;
+
+$xl: 1400px;
+$lg: 1200px;
+$md: 992px;
+$sm: 768px;
+$xs: 576px;
+
+@mixin media($size: $xl) {
+    @media (max-width: $size) {
+        @content;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+body{
+    background: $body;
+    color: $color;
+    font-family: $font-rel;
+}
+
+input, button, textarea{
+    font-size: inherit;
+    font-family: inherit;
+    
+    border: none;
+    outline: none;
+}
+
+.container{
+    max-width: 1344px;
+    width: 100%;
+    padding: 0 12px;
+    margin: 0 auto;
+
+    @include media(){
+        max-width: 1140px;
+    }
+    @include media($lg){
+        max-width: 960px;
+    }
+    @include media($md){
+        max-width: 720px;
+    }
+    @include media($sm){
+        max-width: 540px;
+    }
+}
+
+.text-limit{
+    display: -webkit-box;
+    
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    overflow: hidden;
+}
+
+.more{
+    padding: 6px 32px;
+
+    display: inline-block;
+
+    font-size: 16px;    
+    line-height: 30px;
+    color: #ffffffbb;
+
+    border-radius: 14px;
+    border: 1px solid white;
+    background: transparent;
+
+    transition: .2s ease-in-out;
+
+    &:hover{
+        color: rgba(255, 255, 255, 0.897);
+        
+        background: #ffffff31;
+        border: 1px solid #ffffff7e;
+    }
+
+    @include media($md){
+        padding: 4px 26px;
+        font-size: 14px;
+    }
+    
+    @include media($xs) {
+        font-size: 12px;
+        line-height: 180%;
+    }
+}

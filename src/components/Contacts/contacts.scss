@@ -1,0 +1,156 @@
+.contacts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden; // Убираем горизонтальный скролл
+
+    &-header {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        background-image: url('../../assets/img/contacts-bg.jpg.png'); // Укажите корректный путь
+        background-size: cover;
+        background-position: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0));
+            z-index: 0;
+            pointer-events: none;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 50px;
+        padding: 40px;
+        color: #fff;
+        border-radius: 25px;
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.527);
+        background-color: rgba(255, 255, 255, 0.11);
+        z-index: 1;
+        max-width: 90%; // Ограничение ширины для предотвращения выхода за границы
+
+        @include media($lg) {
+            gap: 30px;
+            padding: 30px;
+        }
+
+        @include media($sm) {
+            padding: 20px;
+        }
+    }
+
+    &__title {
+        font-size: 50px;
+        color: #fff;
+        z-index: 1;
+
+        @include media($lg) {
+            font-size: 40px;
+        }
+
+        @include media($sm) {
+            font-size: 30px;
+        }
+    }
+
+    &__img-logo {
+        max-width: 350px;
+        width: 100%;
+
+        @include media($sm) {
+            max-width: 250px;
+        }
+    }
+
+    &__stitle {
+        margin-top: 50px;
+        font-size: 28px;
+        font-family: $font-mon-alt;
+        color: #ffffffe5;
+
+        @include media($lg) {
+            font-size: 26px;
+        }
+
+        @include media($sm) {
+            font-size: 20px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+
+        @include media($sm) {
+            gap: 20px;
+        }
+    }
+
+    &__link {
+        color: #ffffff9c;
+        font-size: 20px;
+        transition: 0.5s;
+
+        &:hover {
+            color: #fff;
+        }
+
+        @include media($sm) {
+            font-size: 16px;
+        }
+    }
+
+    &__time {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+
+        @include media($sm) {
+            padding: 10px;
+        }
+    }
+
+    &__extra {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        &-title {
+            font-family: $font-mon-alt;
+            font-size: 28px;
+            color: #ffffffe5;
+
+            @include media($sm) {
+                font-size: 22px;
+            }
+        }
+
+        &-desc {
+            color: #ffffffb4;
+            font-family: $font-mon-alt;
+            font-size: 18px;
+
+            @include media($sm) {
+                font-size: 16px;
+            }
+        }
+    }
+}

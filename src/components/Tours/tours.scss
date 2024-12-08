@@ -1,0 +1,352 @@
+.tours {
+    position: relative;
+    
+    height: 100vh;
+
+    color: #fff;
+    font-family: $font-mon;
+
+    & &__list &__item{
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+
+        opacity: 0;
+        transition: .5s;
+
+        &.active{
+            opacity: 1;
+            z-index: 10;
+        }
+    }   
+    & &__list &__item &__img{
+        width: 100%;
+        height: 100%;
+        
+        object-fit: cover;
+    }
+
+    & &__list &__item::after{
+        content: '';
+
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        
+        width: 100%;
+        height: 100%;
+
+        background-image: linear-gradient(to top, #000000ec 33%, transparent);
+    }
+
+    &__info{
+        position: absolute;
+        left: 10%;
+        top: 20%;
+
+        width: 500px;
+        max-width: 80%;
+
+        z-index: 1;
+
+        @include media($xs){
+            max-width: 300px;
+            width: 100%;
+        }
+        @include media($xs){
+            max-width: 250px;
+        }
+
+    }
+    
+    &__sdesc{
+        letter-spacing: 10px;
+    }
+
+    &__title{
+        margin-top: 20px;
+        
+        font-size: 100px;
+
+        @include media($lg){
+            font-size: 70px;   
+        }
+
+        @include media($sm){
+            font-size: 50px;   
+        }
+
+        @include media($xs){
+            font-size: 40px;
+        }
+    }
+
+    &__sdesc, &__desc, &__title{
+        transform: translateY(50px);
+        filter: blur(10px);
+        opacity: 0;
+
+        animation: showInfo .5s .7s ease-in-out 1 forwards;
+    }   
+    &__title{
+        animation-delay: 1s;
+    }
+    &__desc{
+        margin-top: 20px;
+        
+        animation-delay: 1.3s;
+
+        @include media($sm){
+            font-size: 14px;
+        }
+
+        @include media($xs){
+            font-size: 10px;
+            line-height: 18px;
+        }
+    }
+
+    &__arrows{
+        position: absolute;
+        top: 30%;
+        right: 50px;
+
+        z-index: 100;
+
+        @include media($sm){
+            top: 50%;
+        }
+
+        @include media($xs){
+            top: 55%;
+        }
+    }
+
+    button{
+        width: 40px;
+        height: 40px;
+
+        margin-left: 15px;
+
+        color: #ffffffa1;
+        
+        background-color: #eee5;
+        border-radius: 10px;;
+
+        cursor: pointer;
+
+        transition: .3s;
+
+        &:hover{
+            color: #000;
+            
+            background-color: #eee;
+        }
+    }
+
+    &__thumbnail{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        padding: 20px 50px;
+
+        width: 100%;
+        height: 250px;
+        
+        position: absolute;
+        bottom: 50px;
+
+        z-index: 11;
+
+        overflow: auto;
+
+        &::-webkit-scrollbar{
+            width: 0;
+        }
+
+        &.active{
+            filter: brightness(1.5);
+            transform: scale(1.07);
+        }
+
+        @include media($sm){
+            justify-content: start;
+        }
+    }
+
+    &__content{
+        flex-shrink: 0;
+        
+        width: 150px;
+        height: 220px;
+
+        filter: brightness(.3);
+        transition: .5s;
+
+        cursor: pointer;
+
+        @include media($sm){
+            width: 100px;
+            height: 135px;
+        }
+
+        &-img{
+            width: 100%;
+            height: 100%;
+
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform .25s ease;
+
+            &:hover{
+                transform: scale(1.07);
+                filter: brightness(1.35);
+
+                transition: .25s;
+            }
+
+
+        }
+
+        &.active{
+            filter: brightness(1.5);
+        }
+
+        &-title{
+            position: absolute;
+            inset: auto 10px 10px 10px;
+        }
+    }
+    
+}
+
+@keyframes showInfo {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+
+.tours__cards {
+    padding: 50px;
+    background-color: #f9f9f9;
+    flex-wrap: wrap;
+
+    
+}
+
+.cards__title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+
+    @include media($md){
+        font-size: 30px;
+    }
+
+    @include media($sm){
+        font-size: 20px;
+    }
+}
+
+.cards__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; 
+}
+
+.card {
+    position: relative; 
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    width: calc(50% - 10px); 
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.253);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    filter: brightness(1.3);
+}
+
+.card__img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+}
+
+.card__info {
+    position: absolute;
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    transform: translateY(100%); 
+    transition: transform 0.3s; 
+}
+
+.card:hover .card__info {
+    transform: translateY(0); 
+}
+
+.card__title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.card__sdesc {
+    margin-bottom: 10px;
+    
+    font-size: 12px;
+    color: #ddd; // 
+}
+
+.card__desc {
+    margin-bottom: 10px;
+    
+    font-size: 12px;
+    color: #eeeeee9c; // 
+
+    @include media($md){
+        display: none;
+    }
+}
+
+.card__button {
+    padding: 6px 32px;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 30px;
+    color: #ffffff; // 
+    font-weight: 600;
+    border-radius: 14px;
+    border: 2px solid rgba(255, 255, 255, 0.5); // 
+    background: transparent;
+    transition: .2s ease-in-out;
+
+    &:hover {
+        color: rgb(243, 243, 243);
+        background: rgba(255, 255, 255, 0.2); // 
+        border: 2px solid rgba(255, 255, 255, 0.8); //
+    }
+
+    @include media($md){
+        padding: 4px 26px;
+
+        font-size: 14px;
+    }
+
+    @include media($sm){
+        padding: 2px 20px;
+        
+        font-size: 12px;
+        color: rgb(197, 197, 197);
+    }
+}
