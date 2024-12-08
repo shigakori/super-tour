@@ -4,6 +4,7 @@ import TourPage from './pages/TourPage.vue';
 
 const router = createRouter({
     history: createWebHashHistory(),
+    mode: 'hash',
     routes: [
         { path: '/', component: HomePage, name: 'home' },
         { path: '/tours', component: ()=> import('./pages/ToursPage.vue'), name: 'tours' },
